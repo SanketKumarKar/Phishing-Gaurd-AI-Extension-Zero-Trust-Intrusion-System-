@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard AI — Scanning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scanning.css">
+</head>
+<body>
+    <div class="scan-container">
+        <!-- Shield Animation -->
+        <div class="shield-wrapper">
+            <div class="shield">
+                <div class="shield-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                    </svg>
+                </div>
+                <div class="radar-ring ring-1"></div>
+                <div class="radar-ring ring-2"></div>
+                <div class="radar-ring ring-3"></div>
+            </div>
+        </div>
+
+        <!-- Status Text -->
+        <div class="scan-status">
+            <h1 class="scan-title">PHISHGUARD<span>.AI</span></h1>
+            <div class="scan-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+            <p class="scan-step" id="scanStep">Initializing scan...</p>
+            <p class="scan-url" id="scanUrl">—</p>
+        </div>
+
+        <!-- Bottom Info -->
+        <div class="scan-footer">
+            <span class="footer-label">ZERO-TRUST VERIFICATION</span>
+            <span class="footer-dot" id="footerDot">●</span>
+        </div>
+    </div>
+
+    <script src="scanning.js"></script>
+</body>
+</html>

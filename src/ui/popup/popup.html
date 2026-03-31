@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <div class="brand-shield">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                    </svg>
+                </div>
+                <span class="brand-name">PHISHGUARD<span class="accent">.AI</span></span>
+            </div>
+            <button id="toggleBtn" class="toggle active" title="Toggle Protection">
+                <span class="toggle-dot"></span>
+            </button>
+        </header>
+
+        <!-- Current Tab Auto-Scan -->
+        <section class="current-scan" id="currentScan">
+            <div class="scan-header">
+                <span class="scan-label">CURRENT TAB</span>
+                <span class="scan-status" id="scanStatus">Scanning...</span>
+            </div>
+            <div class="scan-url" id="currentUrl">—</div>
+
+            <!-- Risk Gauge -->
+            <div class="gauge-container" id="gaugeContainer">
+                <div class="gauge">
+                    <svg viewBox="0 0 120 70" class="gauge-svg">
+                        <path d="M 10 65 A 50 50 0 0 1 110 65" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M 10 65 A 50 50 0 0 1 110 65" fill="none" stroke="url(#gaugeGrad)" stroke-width="6" stroke-linecap="round" id="gaugeArc" stroke-dasharray="157" stroke-dashoffset="157"/>
+                        <defs>
+                            <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00ff88"/>
+                                <stop offset="50%" stop-color="#ffaa00"/>
+                                <stop offset="100%" stop-color="#ff3366"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="gauge-value" id="gaugeValue">—</div>
+                    <div class="gauge-label">RISK SCORE</div>
+                </div>
+            </div>
+
+            <!-- Verdict -->
+            <div class="verdict-row" id="verdictRow">
+                <span class="verdict-badge" id="verdictBadge">ANALYZING</span>
+            </div>
+
+            <!-- Risk Factors -->
+            <div class="risk-factors hidden" id="riskFactors">
+                <div class="factors-title">DETECTION LOG</div>
+                <ul class="factors-list" id="factorsList"></ul>
+            </div>
+        </section>
+
+        <!-- Manual Scan -->
+        <section class="manual-scan">
+            <div class="input-row">
+                <input type="text" id="urlInput" placeholder="Paste URL to scan..." spellcheck="false">
+                <button id="scanBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats">
+            <div class="stat">
+                <span class="stat-num safe" id="statSafe">0</span>
+                <span class="stat-label">SAFE</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num warn" id="statSuspicious">0</span>
+                <span class="stat-label">WARN</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num danger" id="statPhishing">0</span>
+                <span class="stat-label">BLOCKED</span>
+            </div>
+        </section>
+
+        <!-- Recent History -->
+        <section class="history">
+            <div class="history-header">
+                <span class="history-title">RECENT SCANS</span>
+                <span class="history-count" id="historyCount">0</span>
+            </div>
+            <div class="history-list" id="historyList">
+                <div class="history-empty" id="historyEmpty">No scans recorded yet</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>v2.0.0</span>
+            <span id="systemTime">00:00:00</span>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

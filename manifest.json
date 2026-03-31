@@ -1,0 +1,56 @@
+{
+    "manifest_version": 3,
+    "name": "PhishGuard AI — Advanced Web Security",
+    "description": "Heuristic-based real-time phishing detection and zero-trust browsing protection. Analyzes URL patterns locally to keep your data private.",
+    "version": "2.0.0",
+    "icons": {
+        "16": "assets/icons/icon16.png",
+        "48": "assets/icons/icon48.png",
+        "128": "assets/icons/icon128.png"
+    },
+    "action": {
+        "default_popup": "src/ui/popup/popup.html",
+        "default_icon": {
+            "16": "assets/icons/icon16.png",
+            "48": "assets/icons/icon48.png",
+            "128": "assets/icons/icon128.png"
+        },
+        "default_title": "PhishGuard AI — Phishing Protection"
+    },
+    "background": {
+        "service_worker": "src/background/background.js"
+    },
+    "permissions": [
+        "webNavigation",
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content/content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "src/ui/blocked/blocked.html",
+                "src/ui/blocked/blocked.css",
+                "src/ui/blocked/blocked.js",
+                "src/ui/scanning/scanning.html",
+                "src/ui/scanning/scanning.css",
+                "src/ui/scanning/scanning.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}

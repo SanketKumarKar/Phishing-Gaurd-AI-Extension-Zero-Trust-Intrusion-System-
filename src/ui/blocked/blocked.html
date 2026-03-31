@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard AI — Threat Blocked</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blocked.css">
+</head>
+<body>
+    <div class="blocked-page">
+        <!-- Animated Background -->
+        <div class="bg-grid"></div>
+
+        <div class="content">
+            <!-- Alert Icon -->
+            <div class="alert-icon-wrapper">
+                <div class="alert-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                        <line x1="12" y1="8" x2="12" y2="13"/>
+                        <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="pulse-ring"></div>
+                <div class="pulse-ring delay"></div>
+            </div>
+
+            <!-- Header -->
+            <h1 class="alert-title">ACCESS BLOCKED</h1>
+            <p class="alert-subtitle">PhishGuard AI intercepted a potentially dangerous website</p>
+
+            <!-- Score Card -->
+            <div class="score-card">
+                <div class="score-left">
+                    <span class="score-label">RISK SCORE</span>
+                    <span class="score-value" id="scoreValue">0</span>
+                    <span class="score-percent">/ 100</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-fill" id="scoreFill"></div>
+                </div>
+            </div>
+
+            <!-- URL Display -->
+            <div class="url-card">
+                <span class="url-label">BLOCKED URL</span>
+                <div class="url-text" id="blockedUrl">—</div>
+            </div>
+
+            <!-- Risk Details (hidden initially) -->
+            <div class="risk-panel hidden" id="riskPanel">
+                <div class="risk-header">THREAT ANALYSIS</div>
+                <ul class="risk-list" id="riskList">
+                    <li>Analyzing threat patterns...</li>
+                </ul>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions">
+                <button id="goBackBtn" class="btn btn-safe">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Go Back to Safety
+                </button>
+
+                <div class="bypass-flow">
+                    <button id="showRisksBtn" class="btn btn-ghost">View Risk Details</button>
+                    <button id="proceedBtn" class="btn btn-outline hidden">I understand, proceed anyway</button>
+                    <button id="confirmBtn" class="btn btn-danger hidden">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        CONFIRM: Access at my own risk
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="blocked-footer">
+                <span>PhishGuard AI v2.0</span>
+                <span id="timestamp"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="blocked.js"></script>
+</body>
+</html>
